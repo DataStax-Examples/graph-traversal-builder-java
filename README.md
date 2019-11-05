@@ -1,25 +1,25 @@
-# datastax-example-template
-A short few sentences describing what is the purpose of the example and what the user will learn
+# Implementing Graph Traversal Builder in Java
+This project demonstrates how to [implement](src/main/java/com/datastax/examples/builder/shortestPath/ShortestPathQueryBuilder.java) and
+[use](src/main/java/com/datastax/examples/builder/ShortestPathTraversals.java) a traversal builder that can significantly simplify
+the construction of complex traversals.
 
-e.g.
-This application shows how to use configure your NodeJs application to connect to DDAC/Cassandra/DSE or an Apollo database at runtime.
-
-Contributors: A listing of contributors to this repository linked to their github profile
+Contributors: [Daniel Kuppitz](https://github.com/dkuppitz)
 
 ## Objectives
-A list of the top objectives that are being demonstrated by this sample
 
-e.g.
-* To demonstrate how to specify at runtime between a standard (DSE/DDAC/C*) client configuration and an Apollo configuration for the same application.
+* To demonstrate how to use the builder pattern to simplify the construction of complex Gremlin traversals
   
 ## Project Layout
-A list of key files within this repo and a short 1-2 sentence description of why they are important to the project
 
-e.g.
-* app.js - The main application file which contains all the logic to switch between the configurations
+* [ShortestPathQueryBuild.java](/src/main/java/com/datastax/examples/builder/shortestPath/ShortestPathQueryBuilder.java) - This file implements the builder pattern logic for simplifying traversal construction
 
 ## How this Sample Works
-A description of how this sample works and how it demonstrates the objectives outlined above
+The graph being used in this project is based on [TinkerPop's modern graph](http://tinkerpop.apache.org/docs/current/reference/#tinkerpop-modern).
+The only difference is an added `uses` edge between `peter` and `ripple`.
+
+The application can run without a connection to a DSE cluster (in that case, it will execute all traversals on a `TinkerGraph`). The application's
+user interface will show all the available commands that can be used to establish a connection to a DSE cluster and build/execute certain
+traversals (note, that there's also support for tab completion).
 
 ## Setup and Running
 
@@ -27,19 +27,17 @@ A description of how this sample works and how it demonstrates the objectives ou
 The prerequisites required for this application to run
 
 e.g.
-* NodeJs version 8
-* A DSE 6.7 Cluster
-* Schema added to the cluster
+* Java 8
+* (optional) DSE Cluster with Graph enabled, if you want to run it against a DSE Graph instead of a TinkerGraph
 
 ### Running
-The steps and configuration needed to run and build this application
+To start the sample application, which is a simple CLI application, run the following command from the application's root directory:
 
-e.g.
-To run this application use the following command:
+```bash
+bin/run.sh
+```
 
-`node app.js`
+This shell script will start the application, or recompile  and start the application if any source file is newer than the current binary file.
 
-This will produce the following output:
 
-`Connected to cluster with 3 host(s) ["XX.XX.XX.136:9042","XX.XX.XX.137:9042","XX.XX.XX.138:9042"]`
 
