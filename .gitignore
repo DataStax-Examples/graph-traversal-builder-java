@@ -34,7 +34,6 @@ tmp/
 .classpath
 .project
 .metadata
-bin/
 local.properties
 .loadpath
 .recommenders
